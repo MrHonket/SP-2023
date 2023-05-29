@@ -18,13 +18,16 @@ public:
     std::vector<reaction> reactions;
     reaction::state state;
 
-    Simulator(const std::initializer_list<reaction>& reactions, reaction::state& agentValues): reactions(reactions), state(agentValues)
+    Simulator(const std::initializer_list<reaction>& reactions, reaction::state& reagentValues): reactions(reactions), state(reagentValues)
     {};
 
     friend std::ostream & operator << (std::ostream& s, const Simulator& value);
 
     std::vector<reaction::state> runSimulation(double endTime);
 
+    void MonitoredSimulation(double endTime, std::function<void(STable<double>&)> stateMonitor);
+
     void generateDotFile(const std::vector<reaction>& vector);
 };
+
 #endif //EKSAMEN2023_SIMULATOR_H

@@ -1,7 +1,19 @@
 digraph Reaction {
-    R0 [label="0.001", shape=box,style=filled,fillcolor=cyan];
-    A -> R0 [color=red];
-    C -> R0 [color=red];
-    R0 -> B [color=green];
-    R0 -> C [color=green];
+    R0 [label="7.74194e-05", shape=box,style=filled,fillcolor=cyan];
+    R1 [label="0.196078", shape=box,style=filled,fillcolor=cyan];
+    R2 [label="0.322581", shape=box,style=filled,fillcolor=cyan];
+    R3 [label="0.000290061", shape=box,style=filled,fillcolor=cyan];
+    R4 [label="0.0988142", shape=box,style=filled,fillcolor=cyan];
+    S -> R0 [color=red];
+    I -> R0 [color=red];
+    R0 -> E [color=green];
+    R0 -> I [color=green];
+    E -> R1 [color=red];
+    R1 -> I [color=green];
+    I -> R2 [color=red];
+    R2 -> R [color=green];
+    I -> R3 [color=red];
+    R3 -> H [color=green];
+    H -> R4 [color=red];
+    R4 -> R [color=green];
 }

@@ -129,6 +129,64 @@ std::vector<reaction::state> performSimulationCovid(double simtime, double Nstar
     return CovidSimulator.runSimulation(100);
 }
 
+//Requirement 7
+template<typename T>
+void monitorState(STable<double> currentState) {
+    static double maxReagentValue = 0.0;  // Initialize with the minimum possible value
+    const std::string key = "H";
+
+    // Find the maximum value of a specific reagent
+    if (currentState.contains(key)) {
+        const auto& reagentAValue = currentState.lookup(key);
+        if (reagentAValue.has_value() && reagentAValue.value() > maxReagentValue) {
+            maxReagentValue = reagentAValue.value();
+        }
+    }
+
+    // Print the maximum value
+    std::cout << "Max value of H: " << maxReagentValue << std::endl;
+
+}
+
+void performSimulationRequirementSeven(){
+    const auto Nstart = 10000;
+    auto CovidStates = reaction::state {};
+    const double eps = 0.0009; // initial fraction of infectious
+    const auto I0 = double(std::round(eps*Nstart)); // initial infectious
+    const auto E0 = double(std::round(eps*Nstart*15)); // initial exposed
+    const double S0 = Nstart-I0-E0; // initial susceptible
+    const double R0 = 2.4; // basic reproductive number (initial, without lockdown etc)
+    const double alpha = 1.0 / 5.1; // incubation rate (E -> I) ~5.1 days
+    const double gamma = 1.0 / 3.1; // recovery rate (I -> R) ~3.1 days
+    const double beta = R0 * gamma; // infection/generation rate (S+I -> E+I)
+    const double P_H = 0.9e-3; // probability of hospitalization
+    const double kappa = gamma * P_H*(1.0-P_H); // hospitalization rate (I -> H)
+    const double tau = 1.0/10.12; // recovery/death rate in hospital (H -> R) ~10.12 days
+
+    auto S = Reagent{"S", 1};
+    auto E = Reagent{"E", 1};
+    auto I = Reagent{"I", 1};
+    auto H = Reagent{"H", 1};
+    auto R = Reagent{"R", 1};
+
+    CovidStates.store(S.name, S0);
+    CovidStates.store(E.name, E0);
+    CovidStates.store(I.name, I0);
+    CovidStates.store(H.name, 0);
+    CovidStates.store(R.name, 0);
+
+    const std::initializer_list<reaction> reactions = {
+            reaction(LHS {{S,I}} >>= {{E,I}, beta/Nstart}), // susceptible becomes exposed through infectious
+            reaction(LHS  {{E}} >>= {{I}, alpha}),// exposed becomes infectious
+            reaction(LHS  {{I}}>>= {{{R.name, R.volume}}, gamma}), // infectious becomes removed
+            reaction(LHS {{I}} >>= {{H}, kappa}), // infectious becomes hospitalized
+            reaction(LHS {{H.name, H.volume}} >>= {{R}, tau})    // hospitalized becomes removed
+    };
+
+    Simulator CovidSimulator {reactions, CovidStates};
+    CovidSimulator.MonitoredSimulation(100, monitorState<double>);
+}
+
 // Functions for calculating the Local max and average max for all performed simulations for requirement 7 / 10
 double localMax(const std::string &key, const std::vector<reaction::state> history){
     double localMax = 0.0;
@@ -175,7 +233,6 @@ void futureMean(const std::string &key, std::vector<std::future<std::vector<reac
     std::cout << "Mean " << key << ": " << mean / futures.size() << std::endl;
 }
 
-
 //Benchmark for multicore performance using futures
 //Computed average hospitalized H for N_NJ = 73.8249 and N_DK =
 //Requirement 10
@@ -221,13 +278,16 @@ void runBenchmarks(){
 
 int main(){
     //Requirement 5.1
-    Requirement51();
+    //Requirement51();
 
     //Requirement 5.2
     //performSimulationCR(100);
 
     //Requirement 5.3
     //auto a = performSimulationCovid(100,10000);
+
+    //Requirement 7
+    performSimulationRequirementSeven();
 
     //Requirement 10
     //runBenchmarks();

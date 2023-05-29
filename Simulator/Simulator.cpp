@@ -8,8 +8,6 @@
 #include <graphviz/gvc.h>
 
 std::vector<reaction::state> Simulator::runSimulation(double endTime){
-    //History works as a monitor, storing data for all the states passed during simulation
-    //Requirement 7
     std::vector<reaction::state> History;
 
     //Produces a dotfile or the loaded reactions
@@ -38,6 +36,37 @@ std::vector<reaction::state> Simulator::runSimulation(double endTime){
         std::cout << *this << fastestReaction.first;
     }
     return History;
+}
+//Requirement 7
+//Added simulation mode that takes in a generic monitor function on call-time
+void Simulator::MonitoredSimulation(double endTime, std::function<void(STable<double>&)> stateMonitor) {
+    //Produces a dotfile or the loaded reactions
+    generateDotFile(reactions);
+
+    while (time < endTime){
+        std::vector<std::pair<reaction, double>> validReactionTimes{};
+
+        for (auto& reaction :reactions) {
+            if (reaction.canBeSatisfied(state))
+                validReactionTimes.emplace_back(reaction, reaction.compute_delay(state));
+        }
+
+        std::sort(validReactionTimes.begin(), validReactionTimes.end(), [](const auto& lhs, const auto& rhs) {
+            return lhs.second < rhs.second;
+        });
+
+        auto& fastestReaction = validReactionTimes.front();
+        time += fastestReaction.second;
+        fastestReaction.first.doReaction(state);
+
+        //call statemonitor for requirement 7
+        stateMonitor(state);
+
+        //Handles pretty printing the actions using the overloaded << operators
+        //Requirement 2.a
+        //remember to comment out for simulations
+        //std::cout << *this << fastestReaction.first;
+    }
 }
 
 void Simulator::generateDotFile(const std::vector<reaction>& vector){
