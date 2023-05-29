@@ -98,12 +98,12 @@ std::vector<reaction::state> performSimulationCovid(double simtime, double Nstar
     const auto E0 = double(std::round(eps*Nstart*15)); // initial exposed
     const double S0 = Nstart-I0-E0; // initial susceptible
     const double R0 = 2.4; // basic reproductive number (initial, without lockdown etc)
-    const double alpha = 1.0 / 5.1; // incubation rate (E -> I) ~5.1 days
-    const double gamma = 1.0 / 3.1; // recovery rate (I -> R) ~3.1 days
-    const double beta = R0 * gamma; // infection/generation rate (S+I -> E+I)
+    const double alpha = 1.0 / 5.1; // incubation lambda (E -> I) ~5.1 days
+    const double gamma = 1.0 / 3.1; // recovery lambda (I -> R) ~3.1 days
+    const double beta = R0 * gamma; // infection/generation lambda (S+I -> E+I)
     const double P_H = 0.9e-3; // probability of hospitalization
-    const double kappa = gamma * P_H*(1.0-P_H); // hospitalization rate (I -> H)
-    const double tau = 1.0/10.12; // recovery/death rate in hospital (H -> R) ~10.12 days
+    const double kappa = gamma * P_H*(1.0-P_H); // hospitalization lambda (I -> H)
+    const double tau = 1.0/10.12; // recovery/death lambda in hospital (H -> R) ~10.12 days
 
     auto S = Reagent{"S", 1};
     auto E = Reagent{"E", 1};
@@ -157,12 +157,12 @@ void performSimulationRequirementSeven(){
     const auto E0 = double(std::round(eps*Nstart*15)); // initial exposed
     const double S0 = Nstart-I0-E0; // initial susceptible
     const double R0 = 2.4; // basic reproductive number (initial, without lockdown etc)
-    const double alpha = 1.0 / 5.1; // incubation rate (E -> I) ~5.1 days
-    const double gamma = 1.0 / 3.1; // recovery rate (I -> R) ~3.1 days
-    const double beta = R0 * gamma; // infection/generation rate (S+I -> E+I)
+    const double alpha = 1.0 / 5.1; // incubation lambda (E -> I) ~5.1 days
+    const double gamma = 1.0 / 3.1; // recovery lambda (I -> R) ~3.1 days
+    const double beta = R0 * gamma; // infection/generation lambda (S+I -> E+I)
     const double P_H = 0.9e-3; // probability of hospitalization
-    const double kappa = gamma * P_H*(1.0-P_H); // hospitalization rate (I -> H)
-    const double tau = 1.0/10.12; // recovery/death rate in hospital (H -> R) ~10.12 days
+    const double kappa = gamma * P_H*(1.0-P_H); // hospitalization lambda (I -> H)
+    const double tau = 1.0/10.12; // recovery/death lambda in hospital (H -> R) ~10.12 days
 
     auto S = Reagent{"S", 1};
     auto E = Reagent{"E", 1};
@@ -252,10 +252,10 @@ void runBenchmarks(){
 
 int main(){
     //Requirement 5.1
-    //Requirement51();
+    Requirement51();
 
     //Requirement 5.2
-    performSimulationCR(100);
+    //performSimulationCR(100);
 
     //Requirement 5.3
     //auto a = performSimulationCovid(100,10000);

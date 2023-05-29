@@ -12,7 +12,7 @@
 struct reaction;
 struct RHS {
     const std::vector<Reagent> output{};
-    const double rate{};
+    const double lambda{};
 };
 
 struct LHS {

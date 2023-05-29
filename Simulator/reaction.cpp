@@ -40,7 +40,7 @@ void reaction::doReaction(reaction::state &state){
 //Overloading of the >>= operator allowing for easier creation of rules
 //Requirement 1
 reaction LHS::operator>>=(const RHS& rhs) {
-    return create(this->input, rhs.output, rhs.rate);
+    return create(this->input, rhs.output, rhs.lambda);
 }
 
 std::ostream& operator<<(std::ostream& os, const reaction& value){
