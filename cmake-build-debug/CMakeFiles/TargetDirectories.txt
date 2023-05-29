@@ -1,0 +1,7 @@
+/Users/danielnykjaer/Documents/C++/Eksamen2023/cmake-build-debug/CMakeFiles/Eksamen2023.dir
+/Users/danielnykjaer/Documents/C++/Eksamen2023/cmake-build-debug/CMakeFiles/Requirement5_1.dir
+/Users/danielnykjaer/Documents/C++/Eksamen2023/cmake-build-debug/CMakeFiles/Requirement5_2.dir
+/Users/danielnykjaer/Documents/C++/Eksamen2023/cmake-build-debug/CMakeFiles/Requirement5_3.dir
+/Users/danielnykjaer/Documents/C++/Eksamen2023/cmake-build-debug/CMakeFiles/STableTests.dir
+/Users/danielnykjaer/Documents/C++/Eksamen2023/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/danielnykjaer/Documents/C++/Eksamen2023/cmake-build-debug/CMakeFiles/rebuild_cache.dir
