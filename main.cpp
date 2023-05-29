@@ -4,21 +4,34 @@
 
 //Functions for running the simulations for requirement 5
 void performSimulationABC(const Reagent& A,const Reagent& B,const Reagent& C){
-    auto lambda = 0.001;
-    auto endTime = 1500;
-    reaction ABC (LHS{{{"A",1}, {"C",1}}} >>= {{{"B",1}, {"C",1}}, lambda});
+    //Initialize the start values for all reagents provided by the function input
+    auto ABCStates = reaction::state{};
+    ABCStates.update(A.name, A.volume);
+    ABCStates.update(B.name, B.volume);
+    ABCStates.update(C.name, C.volume);
 
-    auto s = reaction::state{};
-    s.update(A.name, A.volume);
-    s.update(B.name, B.volume);
-    s.update(C.name, C.volume);
+    //Initialize the consumption rates
+    auto lambda = 0.001;
+
+    //Initialize the Reagents needed for the CR Reactions
+    auto ABC_A = Reagent{"A", 1};
+    auto ABC_B = Reagent{"B", 1};
+    auto ABC_C = Reagent{"C", 1};
+
+    //Initialize the Reagents needed for the ABC Reactions
+    const std::initializer_list<reaction> ABCReactions = {
+            reaction(LHS{{ABC_A, ABC_C}} >>= {{ABC_B,ABC_C}, lambda}),
+    };
 
     //construct the simulator
-    Simulator ABCSim {{ABC}, s};
-    ABCSim.runSimulation(endTime);
+    Simulator ABCSim {{ABCReactions}, ABCStates};
+
+    //Initalize the runTime and run the simulator
+    auto runTime = 1500;
+    ABCSim.runSimulation(runTime);
 }
 
-void Requirement51(){
+void performSimulationABC(){
     std::cout << "-----Doing simulations for requirement 5.1-----" << std::endl;
     performSimulationABC(Reagent{"A",100},Reagent{"B",0},Reagent{"C",1});
     std::cout << std::endl;
@@ -29,7 +42,19 @@ void Requirement51(){
 }
 
 void performSimulationCR(double simtime){
+    //Initialize the start values for all the reagents
     auto CRStates = reaction::state{};
+    CRStates.update("DA", 1);
+    CRStates.update("D_A", 0);
+    CRStates.update("DR", 1);
+    CRStates.update("D_R", 0);
+    CRStates.update("MA", 0);
+    CRStates.update("MR", 0);
+    CRStates.update("A", 0);
+    CRStates.update("R", 0);
+    CRStates.update("C", 0);
+
+    //Initialize the consumption rates
     auto alphaA = 50.0;
     auto alpha_A = 500.0;
     auto alphaR = 0.01;
@@ -46,6 +71,7 @@ void performSimulationCR(double simtime){
     auto thetaA = 50.0;
     auto thetaR = 100.0;
 
+    //Initialize the Reagents needed for the CR Reactions
     auto DA = Reagent{"DA", 1};
     auto D_A = Reagent{"D_A", 1};
     auto DR = Reagent{"DR", 1};
@@ -56,19 +82,8 @@ void performSimulationCR(double simtime){
     auto R = Reagent{"R", 1};
     auto C = Reagent{"C", 1};
 
-    //Initialize the start values for all the reagents
-    CRStates.update(DA.name, 1);
-    CRStates.update(D_A.name, 0);
-    CRStates.update(DR.name, 1);
-    CRStates.update(D_R.name, 0);
-    CRStates.update(MA.name, 0);
-    CRStates.update(MR.name, 0);
-    CRStates.update(A.name, 0);
-    CRStates.update(R.name, 0);
-    CRStates.update(C.name, 0);
-
-    //define a list of reactions
-    const std::initializer_list<reaction> initializerList = {
+    //Define CR Reactions
+    const std::initializer_list<reaction> CRReactions = {
             reaction(LHS{{A, DA}} >>= {{D_A}, gammaA}),
             reaction(LHS{D_A} >>= {{DA,A}, thetaA}),
             reaction(LHS{A,DR} >>= {{D_R}, gammaR}),
@@ -87,36 +102,43 @@ void performSimulationCR(double simtime){
             reaction(LHS{MR} >>= {{}, deltaMR})
     };
 
-    Simulator CRSimulator {initializerList, CRStates};
+    //Construct the CR Simulator
+    Simulator CRSimulator {CRReactions, CRStates};
+
+    //Run the CR simulation
     CRSimulator.runSimulation(simtime);
 }
 
 std::vector<reaction::state> performSimulationCovid(double simtime, double Nstart){
-    auto CovidStates = reaction::state {};
-    const double eps = 0.0009; // initial fraction of infectious
-    const auto I0 = double(std::round(eps*Nstart)); // initial infectious
-    const auto E0 = double(std::round(eps*Nstart*15)); // initial exposed
-    const double S0 = Nstart-I0-E0; // initial susceptible
-    const double R0 = 2.4; // basic reproductive number (initial, without lockdown etc)
-    const double alpha = 1.0 / 5.1; // incubation lambda (E -> I) ~5.1 days
-    const double gamma = 1.0 / 3.1; // recovery lambda (I -> R) ~3.1 days
-    const double beta = R0 * gamma; // infection/generation lambda (S+I -> E+I)
-    const double P_H = 0.9e-3; // probability of hospitalization
-    const double kappa = gamma * P_H*(1.0-P_H); // hospitalization lambda (I -> H)
-    const double tau = 1.0/10.12; // recovery/death lambda in hospital (H -> R) ~10.12 days
+    //Initialize the consumption rates first as these are needed for the initial states
+    const double eps = 0.0009;
+    const auto I0 = double(std::round(eps*Nstart));
+    const auto E0 = double(std::round(eps*Nstart*15));
+    const double S0 = Nstart-I0-E0;
+    const double R0 = 2.4;
+    const double alpha = 1.0 / 5.1;
+    const double gamma = 1.0 / 3.1;
+    const double beta = R0 * gamma;
+    const double P_H = 0.9e-3;
+    const double kappa = gamma * P_H*(1.0-P_H);
+    const double tau = 1.0/10.12;
 
+    //Initialize the start values for all the reagents
+    auto CovidStates = reaction::state {};
+    CovidStates.store("S", S0);
+    CovidStates.store("E", E0);
+    CovidStates.store("I", I0);
+    CovidStates.store("H", 0);
+    CovidStates.store("R", 0);
+
+    //Initialize the Reagents needed for the Covid Reactions
     auto S = Reagent{"S", 1};
     auto E = Reagent{"E", 1};
     auto I = Reagent{"I", 1};
     auto H = Reagent{"H", 1};
     auto R = Reagent{"R", 1};
 
-    CovidStates.store(S.name, S0);
-    CovidStates.store(E.name, E0);
-    CovidStates.store(I.name, I0);
-    CovidStates.store(H.name, 0);
-    CovidStates.store(R.name, 0);
-
+    //Define Covid Reactions
     const std::initializer_list<reaction> reactions = {
             reaction(LHS {{S,I}} >>= {{E,I}, beta/Nstart}), // susceptible becomes exposed through infectious
             reaction(LHS  {{E}} >>= {{I}, alpha}),// exposed becomes infectious
@@ -125,7 +147,10 @@ std::vector<reaction::state> performSimulationCovid(double simtime, double Nstar
             reaction(LHS {{H.name, H.volume}} >>= {{R}, tau})    // hospitalized becomes removed
     };
 
+    //Construct the Covid Simulator
     Simulator CovidSimulator {reactions, CovidStates};
+
+    //Run the Covid simulation
     return CovidSimulator.runSimulation(100);
 }
 
@@ -215,7 +240,7 @@ void futureMean(const std::string &key, std::vector<std::future<std::vector<reac
 //Requirement 10
 void runBenchmarks(){
     benchmarking::runBenchmark(1,[=]()->void{
-        constexpr int simulatorCount = 2;
+        constexpr int simulatorCount = 10;
         const double simTime = 100;
         const double N = 10000;
         std::vector<std::future<std::vector<reaction::state>>> futures;
@@ -236,7 +261,7 @@ void runBenchmarks(){
     //Requirement 10
     std::cout << "----- New Benchmarks -----" << std::endl;
     benchmarking::runBenchmark(1,[=]()->void{
-        constexpr int simulatorCount = 1;
+        constexpr int simulatorCount = 10;
         const double simTime = 100;
         const double N = 10000;
         double SCMin = 0.0;
@@ -252,7 +277,7 @@ void runBenchmarks(){
 
 int main(){
     //Requirement 5.1
-    Requirement51();
+    //performSimulationABC();
 
     //Requirement 5.2
     //performSimulationCR(100);
@@ -265,6 +290,5 @@ int main(){
 
     //Requirement 10
     //runBenchmarks();
-
     return 0;
 }
