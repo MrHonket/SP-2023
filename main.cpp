@@ -1,5 +1,3 @@
-#include "Simulator/Helper.h"
-#include "Simulator/reaction.h"
 #include "Simulator/Simulator.h"
 #include "Benchmarking/benchmarking.h"
 #include <future>
@@ -223,7 +221,7 @@ void runBenchmarks(){
 
 int main(){
     //Requirement 5.1
-    //Requirement51();
+    Requirement51();
 
     //Requirement 5.2
     //performSimulationCR(100);
@@ -232,7 +230,7 @@ int main(){
     //auto a = performSimulationCovid(100,10000);
 
     //Requirement 10
-    runBenchmarks();
+    //runBenchmarks();
 
     return 0;
 }
