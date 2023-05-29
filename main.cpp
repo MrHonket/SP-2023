@@ -130,6 +130,7 @@ std::vector<reaction::state> performSimulationCovid(double simtime, double Nstar
 }
 
 //Requirement 7
+//Estimated peak for hospitalized H for N_NJ = 123 and N_DK = 1187
 template<typename T>
 void monitorState(STable<double> currentState) {
     static double maxReagentValue = 0.0;  // Initialize with the minimum possible value
@@ -187,30 +188,6 @@ void performSimulationRequirementSeven(){
     CovidSimulator.MonitoredSimulation(100, monitorState<double>);
 }
 
-// Functions for calculating the Local max and average max for all performed simulations for requirement 7 / 10
-double localMax(const std::string &key, const std::vector<reaction::state> history){
-    double localMax = 0.0;
-    for(auto i : history){
-        if(i.lookup(key).value() > localMax)
-            localMax = i.lookup(key).value();
-    }
-    return localMax;
-
-}
-
-void futureMax(const std::string &key, std::vector<std::future<std::vector<reaction::state>>>&& futures){
-    double Max = 0.0;
-    std::cout << "calculating Max" << std::endl;
-
-    for(auto& i : futures){
-        auto result = i.get();
-        if(localMax(key,result) > Max)
-            Max = localMax(key,result);
-    }
-
-    std::cout << "Max " << key << ": " << Max << std::endl;
-}
-
 // Functions for calculating the Local mean and  mean for all performed simulations for requirement 8 / 10
 double meanCalculator(const std::string &key, const std::vector<reaction::state> history){
     double mean = 0.0;
@@ -234,7 +211,7 @@ void futureMean(const std::string &key, std::vector<std::future<std::vector<reac
 }
 
 //Benchmark for multicore performance using futures
-//Computed average hospitalized H for N_NJ = 73.8249 and N_DK =
+//Computed average hospitalized H for N_NJ = 73.8249 and N_DK = 723.108
 //Requirement 10
 void runBenchmarks(){
     benchmarking::runBenchmark(1,[=]()->void{
@@ -250,9 +227,6 @@ void runBenchmarks(){
             auto future = std::async(std::launch::async, performSimulationCovid, simTime, N);
             futures.push_back(std::move(future));
         }
-
-        //Requirement 7
-        //futureMax("H",std::move(futures));
 
         //Requirement 8
         futureMean("H",std::move(futures));
@@ -287,10 +261,10 @@ int main(){
     //auto a = performSimulationCovid(100,10000);
 
     //Requirement 7
-    performSimulationRequirementSeven();
+    //performSimulationRequirementSeven();
 
     //Requirement 10
-    //runBenchmarks();
+    runBenchmarks();
 
     return 0;
 }
