@@ -255,7 +255,7 @@ int main(){
     //Requirement51();
 
     //Requirement 5.2
-    //performSimulationCR(100);
+    performSimulationCR(100);
 
     //Requirement 5.3
     //auto a = performSimulationCovid(100,10000);
@@ -264,7 +264,7 @@ int main(){
     //performSimulationRequirementSeven();
 
     //Requirement 10
-    runBenchmarks();
+    //runBenchmarks();
 
     return 0;
 }

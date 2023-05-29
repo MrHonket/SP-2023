@@ -33,7 +33,7 @@ std::vector<reaction::state> Simulator::runSimulation(double endTime){
         //Handles pretty printing the actions using the overloaded << operators
         //Requirement 2.a
         //remember to comment out for simulations
-        //std::cout << *this << fastestReaction.first;
+        std::cout << *this << fastestReaction.first;
     }
     return History;
 }
