@@ -10,13 +10,13 @@
 #include "Helper.h"
 class reaction {
 private:
-    double lambda;
-    std::vector<Reagent> input{};
-    std::vector<Reagent> output{};
     reaction(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda) : output(output), input(input), lambda(lambda) {}
     friend reaction create(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda);
 public:
     using state = STable<double>;
+    double lambda;
+    std::vector<Reagent> input{};
+    std::vector<Reagent> output{};
 
     //constructors
     reaction(reaction const &reaction) = default;

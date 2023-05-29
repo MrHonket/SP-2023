@@ -1,4 +1,4 @@
-"/Users/danielnykjaer/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/danielnykjaer/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja -S /Users/danielnykjaer/Documents/C++/Eksamen2023 -B /Users/danielnykjaer/Documents/C++/Eksamen2023/cmake-build-debug
+C:\Users\Danie\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.9011.31\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\Danie\OneDrive\Dokumenter\GitHub\Eksamen2023 -B C:\Users\Danie\OneDrive\Dokumenter\GitHub\Eksamen2023\cmake-build-debug
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/danielnykjaer/Documents/C++/Eksamen2023/cmake-build-debug
+-- Build files have been written to: C:/Users/Danie/OneDrive/Dokumenter/GitHub/Eksamen2023/cmake-build-debug

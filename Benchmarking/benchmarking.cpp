@@ -17,6 +17,6 @@ void benchmarking::runBenchmark(int runs, const std::function<void()> &func){
         total += clock.stop();
     }
 
-    double averageruntime = total / runs;
-    std::cout << "The average runtime was: " << averageruntime << std::endl;
+    double totalruntime = total / runs;
+    std::cout << "The total runtime was: " << totalruntime << std::endl;
 }

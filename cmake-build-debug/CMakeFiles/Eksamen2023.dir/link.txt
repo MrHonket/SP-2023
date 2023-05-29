@@ -1,0 +1,3 @@
+C:\Users\Danie\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.9011.31\bin\cmake\win\x64\bin\cmake.exe -E rm -f CMakeFiles\Eksamen2023.dir/objects.a
+C:\Users\Danie\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.9011.31\bin\mingw\bin\ar.exe qc CMakeFiles\Eksamen2023.dir/objects.a @CMakeFiles\Eksamen2023.dir\objects1
+C:\Users\Danie\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.9011.31\bin\mingw\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\Eksamen2023.dir/objects.a -Wl,--no-whole-archive -o Eksamen2023.exe -Wl,--out-implib,libEksamen2023.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Eksamen2023.dir\linkLibs.rsp

@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Eksamen2023",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Eksamen2023::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Eksamen2023-Debug-fcd5f6ea7893a3a4d08f.json",
+					"name" : "Eksamen2023",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "STableTests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-STableTests-Debug-fa91dc8a536d0c418602.json",
+					"name" : "STableTests",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Danie/OneDrive/Dokumenter/GitHub/Eksamen2023/cmake-build-debug",
+		"source" : "C:/Users/Danie/OneDrive/Dokumenter/GitHub/Eksamen2023"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

@@ -24,5 +24,7 @@ public:
     friend std::ostream & operator << (std::ostream& s, const Simulator& value);
 
     std::vector<reaction::state> runSimulation(double endTime);
+
+    void generateDotFile(const std::vector<reaction>& vector);
 };
 #endif //EKSAMEN2023_SIMULATOR_H
