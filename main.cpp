@@ -175,41 +175,50 @@ void monitorState(STable<double> currentState) {
 }
 
 void performSimulationRequirementSeven(){
+    //Initialize Nstart
     const auto Nstart = 10000;
-    auto CovidStates = reaction::state {};
-    const double eps = 0.0009; // initial fraction of infectious
-    const auto I0 = double(std::round(eps*Nstart)); // initial infectious
-    const auto E0 = double(std::round(eps*Nstart*15)); // initial exposed
-    const double S0 = Nstart-I0-E0; // initial susceptible
-    const double R0 = 2.4; // basic reproductive number (initial, without lockdown etc)
-    const double alpha = 1.0 / 5.1; // incubation lambda (E -> I) ~5.1 days
-    const double gamma = 1.0 / 3.1; // recovery lambda (I -> R) ~3.1 days
-    const double beta = R0 * gamma; // infection/generation lambda (S+I -> E+I)
-    const double P_H = 0.9e-3; // probability of hospitalization
-    const double kappa = gamma * P_H*(1.0-P_H); // hospitalization lambda (I -> H)
-    const double tau = 1.0/10.12; // recovery/death lambda in hospital (H -> R) ~10.12 days
 
+    //Initialize the consumption rates first as these are needed for the initial states
+    const double eps = 0.0009;
+    const auto I0 = double(std::round(eps*Nstart));
+    const auto E0 = double(std::round(eps*Nstart*15));
+    const double S0 = Nstart-I0-E0;
+    const double R0 = 2.4;
+    const double alpha = 1.0 / 5.1;
+    const double gamma = 1.0 / 3.1;
+    const double beta = R0 * gamma;
+    const double P_H = 0.9e-3;
+    const double kappa = gamma * P_H*(1.0-P_H);
+    const double tau = 1.0/10.12;
+
+    //Initialize the start values for all the reagents
+    auto CovidStates = reaction::state {};
+    CovidStates.store("S", S0);
+    CovidStates.store("E", E0);
+    CovidStates.store("I", I0);
+    CovidStates.store("H", 0);
+    CovidStates.store("R", 0);
+
+    //Initialize the Reagents needed for the Covid Reactions
     auto S = Reagent{"S", 1};
     auto E = Reagent{"E", 1};
     auto I = Reagent{"I", 1};
     auto H = Reagent{"H", 1};
     auto R = Reagent{"R", 1};
 
-    CovidStates.store(S.name, S0);
-    CovidStates.store(E.name, E0);
-    CovidStates.store(I.name, I0);
-    CovidStates.store(H.name, 0);
-    CovidStates.store(R.name, 0);
-
+    //Define Covid Reactions
     const std::initializer_list<reaction> reactions = {
             reaction(LHS {{S,I}} >>= {{E,I}, beta/Nstart}), // susceptible becomes exposed through infectious
             reaction(LHS  {{E}} >>= {{I}, alpha}),// exposed becomes infectious
             reaction(LHS  {{I}}>>= {{{R.name, R.volume}}, gamma}), // infectious becomes removed
             reaction(LHS {{I}} >>= {{H}, kappa}), // infectious becomes hospitalized
             reaction(LHS {{H.name, H.volume}} >>= {{R}, tau})    // hospitalized becomes removed
-    };
+    };;
 
+    //Construct the Covid Simulator
     Simulator CovidSimulator {reactions, CovidStates};
+
+    //Run the Covid MonitoredSimulation that takes in our function
     CovidSimulator.MonitoredSimulation(100, monitorState<double>);
 }
 
@@ -240,20 +249,24 @@ void futureMean(const std::string &key, std::vector<std::future<std::vector<reac
 //Requirement 10
 void runBenchmarks(){
     benchmarking::runBenchmark(1,[=]()->void{
+        //Initialize the needed constants
         constexpr int simulatorCount = 10;
         const double simTime = 100;
         const double N = 10000;
+
+        //Initialize the futures vector
         std::vector<std::future<std::vector<reaction::state>>> futures;
 
         std::cout << "Starting multi-core simulation..." << std::endl;
 
+        //Launch our processors
         for(int i = 0; i < simulatorCount; ++i){
             std::cout << "launching nr: " << i << std::endl;
             auto future = std::async(std::launch::async, performSimulationCovid, simTime, N);
             futures.push_back(std::move(future));
         }
 
-        //Requirement 8
+        //Requirement 10, mean calculations
         futureMean("H",std::move(futures));
     });
 
@@ -261,16 +274,20 @@ void runBenchmarks(){
     //Requirement 10
     std::cout << "----- New Benchmarks -----" << std::endl;
     benchmarking::runBenchmark(1,[=]()->void{
+        //Initialize the needed constants
         constexpr int simulatorCount = 10;
         const double simTime = 100;
         const double N = 10000;
         double SCMin = 0.0;
 
+        //Launch the single-cores processes
         std::cout << "Starting single-core benchmark simulation..." << std::endl;
         for(int i = 0; i < simulatorCount; i++){
             auto result = performSimulationCovid(simTime, N);
             SCMin += meanCalculator("H",result);
         }
+
+        //Requirement 10, mean calculations
         std::cout << "mean H: " << SCMin/simulatorCount << std::endl;
     });
 }
