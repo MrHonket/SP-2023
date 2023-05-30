@@ -44,7 +44,7 @@ std::vector<reaction::state> Simulator::runSimulation(double endTime){
 }
 //Requirement 7
 //Added simulation mode that takes in a generic monitor function on call-time
-//Doesn't store the state in history as the requirement specified
+//Does not store the state in history as the requirement specified
 void Simulator::MonitoredSimulation(double endTime, std::function<void(STable<double>&)> stateMonitor) {
     //Produces a dotfile or the loaded reactions
     generateDotFile(reactions);

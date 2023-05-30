@@ -301,7 +301,7 @@ int main(){
     //performSimulationCR(100);
 
     //Requirement 5.3
-    auto a = performSimulationCovid(100,10000);
+    //auto a = performSimulationCovid(100,10000);
 
     //Requirement 7
     //performSimulationRequirementSeven();
