@@ -5,7 +5,6 @@
 #include "Simulator.h"
 #include <iomanip>
 #include <fstream>
-#include <graphviz/gvc.h>
 
 //Requirement 2
 //Functions that enables outputting the loaded reaction network

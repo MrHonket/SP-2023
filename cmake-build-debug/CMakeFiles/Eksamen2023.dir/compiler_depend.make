@@ -430,24 +430,7 @@ CMakeFiles/Eksamen2023.dir/Simulator/Simulator.cpp.obj: C:/Users/Danie/OneDrive/
   C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/fstream \
   C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
   C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
-  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
-  C:/Program\ Files/Graphviz/include/graphviz/gvc.h \
-  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
-  C:/Program\ Files/Graphviz/include/graphviz/types.h \
-  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/assert.h \
-  C:/Program\ Files/Graphviz/include/graphviz/geom.h \
-  C:/Program\ Files/Graphviz/include/graphviz/arith.h \
-  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/math.h \
-  C:/Program\ Files/Graphviz/include/graphviz/gvcext.h \
-  C:/Program\ Files/Graphviz/include/graphviz/pathgeom.h \
-  C:/Program\ Files/Graphviz/include/graphviz/textspan.h \
-  C:/Program\ Files/Graphviz/include/graphviz/cgraph.h \
-  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/inttypes.h \
-  C:/Program\ Files/Graphviz/include/graphviz/cdt.h \
-  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/string.h \
-  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
-  C:/Program\ Files/Graphviz/include/graphviz/usershape.h \
-  C:/Program\ Files/Graphviz/include/graphviz/gvplugin.h
+  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc
 
 CMakeFiles/Eksamen2023.dir/Simulator/reaction.cpp.obj: C:/Users/Danie/OneDrive/Dokumenter/GitHub/Eksamen2023/Simulator/reaction.cpp \
   C:/Users/Danie/OneDrive/Dokumenter/GitHub/Eksamen2023/Simulator/reaction.h \
@@ -886,8 +869,6 @@ C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/m
 
 C:/Users/Danie/OneDrive/Dokumenter/GitHub/Eksamen2023/Benchmarking/benchmarking.h:
 
-C:/Program\ Files/Graphviz/include/graphviz/cgraph.h:
-
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio:
 
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algobase.h:
@@ -1104,8 +1085,6 @@ C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/m
 
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdlib_s.h:
 
-C:/Program\ Files/Graphviz/include/graphviz/gvplugin.h:
-
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/sys/types.h:
 
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h:
@@ -1131,8 +1110,6 @@ C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/m
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_vector.h:
 
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h:
-
-C:/Program\ Files/Graphviz/include/graphviz/gvc.h:
 
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc:
 
@@ -1191,8 +1168,6 @@ C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/m
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h:
 
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cctype:
-
-C:/Program\ Files/Graphviz/include/graphviz/usershape.h:
 
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/ctype.h:
 
@@ -1350,34 +1325,6 @@ C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/m
 
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc:
 
-C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h:
-
-C:/Program\ Files/Graphviz/include/graphviz/types.h:
-
-C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/assert.h:
-
-C:/Program\ Files/Graphviz/include/graphviz/geom.h:
-
-C:/Program\ Files/Graphviz/include/graphviz/arith.h:
-
-C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/math.h:
-
-C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h:
-
-C:/Program\ Files/Graphviz/include/graphviz/gvcext.h:
-
-C:/Program\ Files/Graphviz/include/graphviz/pathgeom.h:
-
-C:/Program\ Files/Graphviz/include/graphviz/textspan.h:
-
-C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/inttypes.h:
-
-C:/Program\ Files/Graphviz/include/graphviz/cdt.h:
-
-C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/string.h:
-
-C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h:
-
 C:/Users/Danie/OneDrive/Dokumenter/GitHub/Eksamen2023/Simulator/reaction.cpp:
 
 C:/Users/Danie/OneDrive/Dokumenter/GitHub/Eksamen2023/main.cpp:
@@ -1389,6 +1336,8 @@ C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/m
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr.h:
 
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_base.h:
+
+C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h:
 
 C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/concurrence.h:
 

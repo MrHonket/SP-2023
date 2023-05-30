@@ -24,7 +24,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/Graphviz/include"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
@@ -47,7 +46,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/Graphviz/include"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
@@ -70,7 +68,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/Graphviz/include"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
@@ -93,7 +90,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/Graphviz/include"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
