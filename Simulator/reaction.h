@@ -36,6 +36,7 @@ public:
     [[nodiscard]] bool canBeSatisfied(reaction::state& state) const;
     void doReaction(reaction::state& state);
 
+    //Requirement 2 - Printing of reaction
     friend std::ostream & operator << (std::ostream& os, const reaction& value);
 };
 

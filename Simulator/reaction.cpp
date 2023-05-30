@@ -37,20 +37,22 @@ void reaction::doReaction(reaction::state &state){
     }
 };
 
-//Overloading of the >>= operator allowing for easier creation of rules
 //Requirement 1
+//Overloading of the >>= operator allowing for easier creation of rules
 reaction LHS::operator>>=(const RHS& rhs) {
     return create(this->input, rhs.output, rhs.lambda);
 }
 
+//Requirement 2 - Printing of reaction
 std::ostream& operator<<(std::ostream& os, const reaction& value){
-    os <<"(";
+    os <<"( ";
     for (const auto& input : value.input){
-        os << input.name;
+        os << input.name << " ";
     }
-    os << "->";
+    os << "-> " ;
     if(value.output.empty())
         os << "Void";
+
     for (const auto& output : value.output) {
         os << output.name << " ";
     }

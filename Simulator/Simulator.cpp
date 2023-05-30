@@ -7,10 +7,18 @@
 #include <fstream>
 #include <graphviz/gvc.h>
 
+//Requirement 2
+//Functions that enables outputting the loaded reaction network
+void Simulator::printLoadedReactions(){
+    for (auto& reaction : reactions) {
+        std::cout << reaction;
+    }
+}
+
 std::vector<reaction::state> Simulator::runSimulation(double endTime){
     std::vector<reaction::state> History;
 
-    //Produces a dotfile or the loaded reactions
+    //Produces a dotfile of the loaded reactions
     generateDotFile(reactions);
 
     while (time < endTime){
@@ -30,8 +38,6 @@ std::vector<reaction::state> Simulator::runSimulation(double endTime){
         fastestReaction.first.doReaction(state);
         History.emplace_back(state);
 
-        //Handles pretty printing the actions using the overloaded << operators
-        //Requirement 2.a
         //remember to comment out for simulations
         //std::cout << *this << fastestReaction.first;
     }
@@ -39,6 +45,7 @@ std::vector<reaction::state> Simulator::runSimulation(double endTime){
 }
 //Requirement 7
 //Added simulation mode that takes in a generic monitor function on call-time
+//Doesn't store the state in history as the requirement specified
 void Simulator::MonitoredSimulation(double endTime, std::function<void(STable<double>&)> stateMonitor) {
     //Produces a dotfile or the loaded reactions
     generateDotFile(reactions);
@@ -59,16 +66,13 @@ void Simulator::MonitoredSimulation(double endTime, std::function<void(STable<do
         time += fastestReaction.second;
         fastestReaction.first.doReaction(state);
 
-        //call statemonitor for requirement 7
+        //call the provided stateMonitor function
         stateMonitor(state);
-
-        //Handles pretty printing the actions using the overloaded << operators
-        //Requirement 2.a
-        //remember to comment out for simulations
-        //std::cout << *this << fastestReaction.first;
     }
 }
 
+//Requirement 2 Dotfile
+//Function for producing the .dot needed for graphviz to generate a reaction network
 void Simulator::generateDotFile(const std::vector<reaction>& vector){
     std::ofstream dotFile("reaction_graph.dot");
     dotFile << "digraph Reaction {\n";

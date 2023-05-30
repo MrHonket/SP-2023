@@ -28,6 +28,8 @@ public:
     void MonitoredSimulation(double endTime, std::function<void(STable<double>&)> stateMonitor);
 
     void generateDotFile(const std::vector<reaction>& vector);
+
+    void printLoadedReactions();
 };
 
 #endif //EKSAMEN2023_SIMULATOR_H

@@ -2,6 +2,7 @@
 #include "Benchmarking/benchmarking.h"
 #include <future>
 
+//Requirement 6
 //Functions for running the simulations for requirement 5
 void performSimulationABC(const Reagent& A,const Reagent& B,const Reagent& C){
     //Initialize the start values for all reagents provided by the function input
@@ -222,14 +223,14 @@ void performSimulationRequirementSeven(){
     CovidSimulator.MonitoredSimulation(100, monitorState<double>);
 }
 
-// Functions for calculating the Local mean and  mean for all performed simulations for requirement 8 / 10
+//Requirement 8 and 10
+// Functions for calculating the Local mean and  mean for all performed simulations
 double meanCalculator(const std::string &key, const std::vector<reaction::state> history){
     double mean = 0.0;
     for(auto i : history){
         mean += i.lookup(key).value();
     }
     return mean / history.size();
-
 }
 
 void futureMean(const std::string &key, std::vector<std::future<std::vector<reaction::state>>>&& futures){
@@ -244,9 +245,9 @@ void futureMean(const std::string &key, std::vector<std::future<std::vector<reac
     std::cout << "Mean " << key << ": " << mean / futures.size() << std::endl;
 }
 
+//Requirement 10 and 10
 //Benchmark for multicore performance using futures
 //Computed average hospitalized H for N_NJ = 73.8249 and N_DK = 723.108
-//Requirement 10
 void runBenchmarks(){
     benchmarking::runBenchmark(1,[=]()->void{
         //Initialize the needed constants
@@ -300,7 +301,7 @@ int main(){
     //performSimulationCR(100);
 
     //Requirement 5.3
-    //auto a = performSimulationCovid(100,10000);
+    auto a = performSimulationCovid(100,10000);
 
     //Requirement 7
     //performSimulationRequirementSeven();
