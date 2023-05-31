@@ -20,8 +20,8 @@ double reaction::computeDelay(reaction::state& state){
     std::random_device rd;
     std::mt19937 generator(rd());
     std::exponential_distribution<> exponentialDistribution(volumeProduct * lambda);
-    auto val =  exponentialDistribution(generator);
-    return val;
+    auto delay =  exponentialDistribution(generator);
+    return delay;
 }
 
 reaction create(const std::vector<Reagent>& reactants, const std::vector<Reagent>& products, double lambda) {
