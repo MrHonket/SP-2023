@@ -11,7 +11,6 @@
 #include <vector>
 #include "Reagent.h"
 #include "STable.h"
-//#include "Helper.h"
 
 struct reaction;
 
