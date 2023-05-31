@@ -24,8 +24,8 @@ double reaction::computeDelay(reaction::state& state){
     return delay;
 }
 
-reaction create(const std::vector<Reagent>& reactants, const std::vector<Reagent>& products, double lambda) {
-    return {reactants, products, lambda};
+reaction create(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda) {
+    return {input, output, lambda};
 }
 
 void reaction::doReaction(reaction::state &state){

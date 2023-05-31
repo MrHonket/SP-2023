@@ -28,9 +28,9 @@ public:
     }
 
     void update(const std::string &symbol, T value) {
-        const auto& found = SymbolTable.find(symbol);
-        if(found != SymbolTable.end()){
-            (*found).second = value;
+        const auto& lookup = SymbolTable.find(symbol);
+        if(lookup != SymbolTable.end()){
+            (*lookup).second = value;
         } else{
             store(symbol, value);
         }
