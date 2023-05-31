@@ -27,23 +27,14 @@ public:
         return (SymbolTable.find(key) != SymbolTable.end());
     }
 
-    void update(const std::string &symbol, T value) {
-        const auto& lookup = SymbolTable.find(symbol);
-        if(lookup != SymbolTable.end()){
-            (*lookup).second = value;
-        } else{
-            store(symbol, value);
-        }
+    void update(const std::string& symbol, T value) {
+        SymbolTable[symbol] = value;
     }
 
     std::optional<T> lookup(const std::string &key){
-        try {
-            if(contains(key))
-                return SymbolTable.find(key)->second;
-            return std::nullopt;
-        } catch (...) {
-            std::cout << "No object for key found";
-        }
+        if(contains(key))
+            return SymbolTable.find(key)->second;
+        return std::nullopt;
     }
 
     [[nodiscard]] size_t size() const {
