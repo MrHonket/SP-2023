@@ -25,7 +25,7 @@ std::vector<reaction::state> Simulator::runSimulation(double endTime){
 
         for (auto& reaction :reactions) {
             if (reaction.canBeSatisfied(state))
-                validReactionTimes.emplace_back(reaction, reaction.compute_delay(state));
+                validReactionTimes.emplace_back(reaction, reaction.computeDelay(state));
         }
 
         std::sort(validReactionTimes.begin(), validReactionTimes.end(), [](const auto& lhs, const auto& rhs) {
@@ -38,14 +38,14 @@ std::vector<reaction::state> Simulator::runSimulation(double endTime){
         History.emplace_back(state);
 
         //remember to comment out for simulations
-        //std::cout << *this << fastestReaction.first;
+        std::cout << *this << fastestReaction.first;
     }
     return History;
 }
 //Requirement 7
 //Added simulation mode that takes in a generic monitor function on call-time
 //Does not store the state in history as the requirement specified
-void Simulator::MonitoredSimulation(double endTime, std::function<void(STable<double>&)> stateMonitor) {
+void Simulator::monitoredSimulation(double endTime, std::function<void(STable<double>&)> stateMonitor) {
     //Produces a dotfile or the loaded reactions
     generateDotFile(reactions);
 
@@ -54,7 +54,7 @@ void Simulator::MonitoredSimulation(double endTime, std::function<void(STable<do
 
         for (auto& reaction :reactions) {
             if (reaction.canBeSatisfied(state))
-                validReactionTimes.emplace_back(reaction, reaction.compute_delay(state));
+                validReactionTimes.emplace_back(reaction, reaction.computeDelay(state));
         }
 
         std::sort(validReactionTimes.begin(), validReactionTimes.end(), [](const auto& lhs, const auto& rhs) {

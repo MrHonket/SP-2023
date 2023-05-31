@@ -10,16 +10,16 @@ bool reaction::canBeSatisfied(reaction::state& state) const {
     });
 }
 
-double reaction::compute_delay(reaction::state& state){
-    auto product = 1.0;
+double reaction::computeDelay(reaction::state& state){
+    auto volumeProduct = 1.0;
     for (const auto& i : input){
-        product *= state.lookup(i.name).value();
+        volumeProduct *= state.lookup(i.name).value();
     }
-    if (product == 0) return 0;
+    if (volumeProduct == 0) return 0;
 
     std::random_device rd;
     std::mt19937 generator(rd());
-    std::exponential_distribution<> exponentialDistribution(product * lambda);
+    std::exponential_distribution<> exponentialDistribution(volumeProduct * lambda);
     auto val =  exponentialDistribution(generator);
     return val;
 }
@@ -32,7 +32,7 @@ void reaction::doReaction(reaction::state &state){
     for (const Reagent& i : input) {
         state.update(i.name, state.lookup(i.name).value() - i.volume);
     }
-    for (const Reagent i : output) {
+    for (const Reagent& i : output) {
         state.update(i.name, state.lookup(i.name).value_or(0) + i.volume);
     }
 };

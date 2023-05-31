@@ -25,7 +25,7 @@ public:
 
     std::vector<reaction::state> runSimulation(double endTime);
 
-    void MonitoredSimulation(double endTime, std::function<void(STable<double>&)> stateMonitor);
+    void monitoredSimulation(double endTime, std::function<void(STable<double>&)> stateMonitor);
 
     void generateDotFile(const std::vector<reaction>& vector);
 

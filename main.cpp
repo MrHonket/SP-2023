@@ -219,8 +219,8 @@ void performSimulationRequirementSeven(){
     //Construct the Covid Simulator
     Simulator CovidSimulator {reactions, CovidStates};
 
-    //Run the Covid MonitoredSimulation that takes in our function
-    CovidSimulator.MonitoredSimulation(100, monitorState<double>);
+    //Run the Covid monitoredSimulation that takes in our function
+    CovidSimulator.monitoredSimulation(100, monitorState<double>);
 }
 
 //Requirement 8 and 10
@@ -295,7 +295,7 @@ void runBenchmarks(){
 
 int main(){
     //Requirement 5.1
-    //performSimulationABC();
+    performSimulationABC();
 
     //Requirement 5.2
     //performSimulationCR(100);

@@ -32,7 +32,7 @@ public:
         return *this;
     }
 
-    [[nodiscard]] double compute_delay(reaction::state& state);
+    [[nodiscard]] double computeDelay(reaction::state& state);
     [[nodiscard]] bool canBeSatisfied(reaction::state& state) const;
     void doReaction(reaction::state& state);
 
