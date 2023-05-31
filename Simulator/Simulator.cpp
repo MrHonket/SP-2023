@@ -96,8 +96,8 @@ void Simulator::generateDotFile(const std::vector<reaction>& vector){
 
 std::ostream& operator<<(std::ostream& os, const Simulator& value){
     os << value.time <<":  Table Status: | ";
-    for (const auto& r : value.state){
-        os << r.first <<"(" <<r.second << ")";
+    for (const auto& reagent : value.state){
+        os << reagent.first << "(" << reagent.second << ")";
     }
     os << "| ";
     return os;
