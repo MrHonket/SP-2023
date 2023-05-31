@@ -44,16 +44,16 @@ reaction LHS::operator>>=(const RHS& rhs) {
 }
 
 //Requirement 2 - Printing of reaction
-std::ostream& operator<<(std::ostream& os, const reaction& value){
+std::ostream& operator<<(std::ostream& os, const reaction& reaction){
     os <<"( ";
-    for (const auto& input : value.input){
+    for (const auto& input : reaction.input){
         os << input.name << " ";
     }
     os << "-> " ;
-    if(value.output.empty())
+    if(reaction.output.empty())
         os << "Void";
 
-    for (const auto& output : value.output) {
+    for (const auto& output : reaction.output) {
         os << output.name << " ";
     }
     os << ")" << std::endl;
