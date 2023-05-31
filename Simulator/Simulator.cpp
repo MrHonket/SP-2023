@@ -24,7 +24,7 @@ std::vector<reaction::state> Simulator::runSimulation(double endTime){
         std::vector<std::pair<reaction, double>> validReactionTimes{};
 
         for (auto& reaction :reactions) {
-            if (reaction.canBeSatisfied(state))
+            if (reaction.isDoable(state))
                 validReactionTimes.emplace_back(reaction, reaction.computeDelay(state));
         }
 
@@ -53,7 +53,7 @@ void Simulator::monitoredSimulation(double endTime, std::function<void(STable<do
         std::vector<std::pair<reaction, double>> delaysForSatisfiableReactions{};
 
         for (auto& reaction :reactions) {
-            if (reaction.canBeSatisfied(state))
+            if (reaction.isDoable(state))
                 delaysForSatisfiableReactions.emplace_back(reaction, reaction.computeDelay(state));
         }
 

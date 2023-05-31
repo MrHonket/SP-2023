@@ -51,7 +51,7 @@ public:
     }
 
     [[nodiscard]] double computeDelay(reaction::state& state);
-    [[nodiscard]] bool canBeSatisfied(reaction::state& state) const;
+    [[nodiscard]] bool isDoable(reaction::state& state) const;
     void doReaction(reaction::state& state);
 
     //Requirement 2 - Printing of reaction

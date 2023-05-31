@@ -3,7 +3,7 @@
 //
 #include "reaction.h"
 
-bool reaction::canBeSatisfied(reaction::state& state) const {
+bool reaction::isDoable(reaction::state& state) const {
     return std::all_of(input.begin(), input.end(), [&state](const auto& reagentInvolved) {
         auto inputVolume = state.lookup(reagentInvolved.name);
         return inputVolume.has_value() && inputVolume.value() >= reagentInvolved.volume;
