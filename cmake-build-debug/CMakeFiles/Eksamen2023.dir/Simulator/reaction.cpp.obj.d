@@ -152,7 +152,6 @@ CMakeFiles/Eksamen2023.dir/Simulator/reaction.cpp.obj: \
  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bit \
  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h \
  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h \
- C:\Users\Danie\OneDrive\Dokumenter\GitHub\Eksamen2023\Simulator\Helper.h \
  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream \
  C:/Users/Danie/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios \

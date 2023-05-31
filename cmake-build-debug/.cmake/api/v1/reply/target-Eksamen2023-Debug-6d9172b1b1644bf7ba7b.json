@@ -56,10 +56,10 @@
 			"sourceIndexes" : 
 			[
 				0,
-				4,
-				6,
-				9,
-				11
+				3,
+				5,
+				8,
+				10
 			]
 		}
 	],
@@ -97,10 +97,10 @@
 			"sourceIndexes" : 
 			[
 				0,
-				4,
-				6,
-				9,
-				11
+				3,
+				5,
+				8,
+				10
 			]
 		},
 		{
@@ -109,11 +109,10 @@
 			[
 				1,
 				2,
-				3,
-				5,
+				4,
+				6,
 				7,
-				8,
-				10
+				9
 			]
 		}
 	],
@@ -128,11 +127,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "Simulator/Reagent.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Simulator/Helper.h",
 			"sourceGroupIndex" : 1
 		},
 		{

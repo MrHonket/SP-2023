@@ -6,7 +6,6 @@
 #define EKSAMEN2023_SIMULATOR_H
 
 #include <functional>
-#include "Helper.h"
 #include "reaction.h"
 
 //Implementation of the class handling stochastic simulation

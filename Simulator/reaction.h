@@ -7,8 +7,26 @@
 
 #include <utility>
 #include <random>
-#include "Helper.h"
-class reaction {
+#include <iostream>
+#include <vector>
+#include "Reagent.h"
+#include "STable.h"
+//#include "Helper.h"
+
+struct reaction;
+
+struct Output {
+    const std::vector<Reagent> output{};
+    const double lambda{};
+};
+
+struct LHS {
+    const std::vector<Reagent> input{};
+    LHS(const std::initializer_list<Reagent>& input) : input(input){}
+    reaction operator>>=(const Output& output);
+};
+
+struct reaction {
 private:
     reaction(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda) : output(output), input(input), lambda(lambda) {}
     friend reaction create(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda);
@@ -21,7 +39,7 @@ public:
     //constructors
     reaction(reaction const &reaction) = default;
     reaction(reaction& other) = default;
-    reaction(const LHS& lhs, const RHS& rhs, double lambda) : lambda(lambda), input(lhs.input), output(rhs.output){}
+    reaction(const LHS& lhs, const Output& output, double lambda) : lambda(lambda), input(lhs.input), output(output.output){}
     reaction(const std::initializer_list<Reagent>& lhs, const std::initializer_list<Reagent>& rhs, double lambda) : lambda(lambda), input(lhs),output(rhs){}
 
     //Move assignment needed for sort in Simulator
