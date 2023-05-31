@@ -38,8 +38,8 @@ public:
     //constructors
     reaction(reaction const &reaction) = default;
     reaction(reaction& other) = default;
-    reaction(const LHS& lhs, const Output& output, double lambda) : lambda(lambda), input(lhs.input), output(output.output){}
-    reaction(const std::initializer_list<Reagent>& lhs, const std::initializer_list<Reagent>& rhs, double lambda) : lambda(lambda), input(lhs),output(rhs){}
+    reaction(const LHS& input, const Output& output, double lambda) : lambda(lambda), input(input.input), output(output.output){}
+    reaction(const std::initializer_list<Reagent>& input, const std::initializer_list<Reagent>& output, double lambda) : lambda(lambda), input(input),output(output){}
     reaction(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda) : output(output), input(input), lambda(lambda) {}
 
     //Move assignment needed for sort in Simulator
