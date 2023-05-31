@@ -50,11 +50,12 @@ std::ostream& operator<<(std::ostream& os, const reaction& reaction){
         os << input.name << " ";
     }
     os << "-> " ;
-    if(reaction.output.empty())
+    if(reaction.output.empty()) {
         os << "Void";
-
-    for (const auto& output : reaction.output) {
-        os << output.name << " ";
+    } else {
+        for (const auto &output: reaction.output) {
+            os << output.name << " ";
+        }
     }
     os << ")" << std::endl;
     return os;
