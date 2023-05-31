@@ -38,7 +38,7 @@ std::vector<reaction::state> Simulator::runSimulation(double endTime){
         History.emplace_back(state);
 
         //remember to comment out for simulations
-        std::cout << *this << fastestReaction.first;
+        //std::cout << *this << fastestReaction.first;
     }
     return History;
 }
@@ -50,18 +50,18 @@ void Simulator::monitoredSimulation(double endTime, std::function<void(STable<do
     generateDotFile(reactions);
 
     while (time < endTime){
-        std::vector<std::pair<reaction, double>> validReactionTimes{};
+        std::vector<std::pair<reaction, double>> delaysForSatisfiableReactions{};
 
         for (auto& reaction :reactions) {
             if (reaction.canBeSatisfied(state))
-                validReactionTimes.emplace_back(reaction, reaction.computeDelay(state));
+                delaysForSatisfiableReactions.emplace_back(reaction, reaction.computeDelay(state));
         }
 
-        std::sort(validReactionTimes.begin(), validReactionTimes.end(), [](const auto& lhs, const auto& rhs) {
+        std::sort(delaysForSatisfiableReactions.begin(), delaysForSatisfiableReactions.end(), [](const auto& lhs, const auto& rhs) {
             return lhs.second < rhs.second;
         });
 
-        auto& fastestReaction = validReactionTimes.front();
+        auto& fastestReaction = delaysForSatisfiableReactions.front();
         time += fastestReaction.second;
         fastestReaction.first.doReaction(state);
 
