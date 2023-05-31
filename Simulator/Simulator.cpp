@@ -72,12 +72,12 @@ void Simulator::monitoredSimulation(double endTime, std::function<void(STable<do
 
 //Requirement 2 Dotfile
 //Function for producing the .dot needed for graphviz to generate a reaction network
-void Simulator::generateDotFile(const std::vector<reaction>& vector){
+void Simulator::generateDotFile(const std::vector<reaction>& reactions){
     std::ofstream dotFile("reaction_graph.dot");
     dotFile << "digraph Reaction {\n";
 
-    for(size_t i = 0; i < vector.size(); ++i){
-        dotFile << "    R" << i << " [label=\"" << vector[i].lambda << "\", shape=box,style=filled,fillcolor=cyan];\n";
+    for(size_t i = 0; i < reactions.size(); ++i){
+        dotFile << "    R" << i << " [label=\"" << reactions[i].lambda << "\", shape=box,style=filled,fillcolor=cyan];\n";
     }
 
     for (size_t i = 0; i < reactions.size(); ++i) {

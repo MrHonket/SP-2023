@@ -27,7 +27,7 @@ public:
 
     void monitoredSimulation(double endTime, std::function<void(STable<double>&)> stateMonitor);
 
-    void generateDotFile(const std::vector<reaction>& vector);
+    void generateDotFile(const std::vector<reaction>& reactions);
 
     void printLoadedReactions();
 };
