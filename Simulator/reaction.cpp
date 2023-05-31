@@ -24,10 +24,6 @@ double reaction::computeDelay(reaction::state& state){
     return delay;
 }
 
-reaction create(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda) {
-    return {input, output, lambda};
-}
-
 void reaction::doReaction(reaction::state &state){
     for (const Reagent& i : input) {
         state.update(i.name, state.lookup(i.name).value() - i.volume);
@@ -40,7 +36,7 @@ void reaction::doReaction(reaction::state &state){
 //Requirement 1
 //Overloading of the >>= operator allowing for easier creation of reaction
 reaction LHS::operator>>=(const Output& output) {
-    return create(this->input, output.output, output.lambda);
+    return reaction(input,output.output,output.lambda);
 }
 
 //Requirement 2 - Printing of reaction

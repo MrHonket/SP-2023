@@ -23,13 +23,13 @@ struct Output {
 struct LHS {
     const std::vector<Reagent> input{};
     LHS(const std::initializer_list<Reagent>& input) : input(input){}
+
+    //Requirement 1
     reaction operator>>=(const Output& output);
 };
 
 struct reaction {
 private:
-    reaction(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda) : output(output), input(input), lambda(lambda) {}
-    friend reaction create(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda);
 public:
     using state = STable<double>;
     double lambda;
@@ -41,6 +41,7 @@ public:
     reaction(reaction& other) = default;
     reaction(const LHS& lhs, const Output& output, double lambda) : lambda(lambda), input(lhs.input), output(output.output){}
     reaction(const std::initializer_list<Reagent>& lhs, const std::initializer_list<Reagent>& rhs, double lambda) : lambda(lambda), input(lhs),output(rhs){}
+    reaction(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda) : output(output), input(input), lambda(lambda) {}
 
     //Move assignment needed for sort in Simulator
     reaction& operator=(reaction&& other) noexcept{
