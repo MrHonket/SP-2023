@@ -295,7 +295,7 @@ void runBenchmarks(){
 
 int main(){
     //Requirement 5.1
-    performSimulationABC();
+    //performSimulationABC();
 
     //Requirement 5.2
     //performSimulationCR(100);
