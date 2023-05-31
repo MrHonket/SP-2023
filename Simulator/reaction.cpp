@@ -38,7 +38,7 @@ void reaction::doReaction(reaction::state &state){
 };
 
 //Requirement 1
-//Overloading of the >>= operator allowing for easier creation of rules
+//Overloading of the >>= operator allowing for easier creation of reaction
 reaction LHS::operator>>=(const RHS& rhs) {
     return create(this->input, rhs.output, rhs.lambda);
 }
