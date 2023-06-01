@@ -21,7 +21,7 @@ void performSimulationABC(const Reagent& A,const Reagent& B,const Reagent& C){
 
     //Initialize the Reagents needed for the ABC Reactions
     const std::initializer_list<reaction> ABCReactions = {
-            reaction(LHS{{ABC_A, ABC_C}} >>= {{ABC_B,ABC_C}, lambda}),
+            reaction(Input{{ABC_A, ABC_C}} >>= {{ABC_B, ABC_C}, lambda}),
     };
 
     //construct the simulator
@@ -85,22 +85,22 @@ void performSimulationCR(double simtime){
 
     //Define CR Reactions
     const std::initializer_list<reaction> CRReactions = {
-            reaction(LHS{{A, DA}} >>= {{D_A}, gammaA}),
-            reaction(LHS{D_A} >>= {{DA,A}, thetaA}),
-            reaction(LHS{A,DR} >>= {{D_R}, gammaR}),
-            reaction(LHS{D_R} >>= {{DR, A}, thetaR}),
-            reaction(LHS{D_A} >>= {{MA, D_A}, alpha_A}),
-            reaction(LHS{DA} >>= {{MA, DA}, alphaA}),
-            reaction(LHS{D_R} >>= {{MR, D_R}, alpha_R}),
-            reaction(LHS{DR} >>= {{MR, DR}, alphaR}),
-            reaction(LHS{MA} >>= {{MA, A}, betaA}),
-            reaction(LHS{MR} >>= {{MR,R}, betaR}),
-            reaction(LHS{A,R} >>= {{C}, gammaC}),
-            reaction(LHS{C} >>= {{R}, deltaA}),
-            reaction(LHS{A} >>= {{}, deltaA}),
-            reaction(LHS{R} >>= {{}, deltaR}),
-            reaction(LHS{MA} >>= {{}, deltaMA}),
-            reaction(LHS{MR} >>= {{}, deltaMR})
+            reaction(Input{{A, DA}} >>= {{D_A}, gammaA}),
+            reaction(Input{D_A} >>= {{DA, A}, thetaA}),
+            reaction(Input{A, DR} >>= {{D_R}, gammaR}),
+            reaction(Input{D_R} >>= {{DR, A}, thetaR}),
+            reaction(Input{D_A} >>= {{MA, D_A}, alpha_A}),
+            reaction(Input{DA} >>= {{MA, DA}, alphaA}),
+            reaction(Input{D_R} >>= {{MR, D_R}, alpha_R}),
+            reaction(Input{DR} >>= {{MR, DR}, alphaR}),
+            reaction(Input{MA} >>= {{MA, A}, betaA}),
+            reaction(Input{MR} >>= {{MR, R}, betaR}),
+            reaction(Input{A, R} >>= {{C}, gammaC}),
+            reaction(Input{C} >>= {{R}, deltaA}),
+            reaction(Input{A} >>= {{}, deltaA}),
+            reaction(Input{R} >>= {{}, deltaR}),
+            reaction(Input{MA} >>= {{}, deltaMA}),
+            reaction(Input{MR} >>= {{}, deltaMR})
     };
 
     //Construct the CR Simulator
@@ -141,11 +141,11 @@ std::vector<reaction::state> performSimulationCovid(double simtime, double Nstar
 
     //Define Covid Reactions
     const std::initializer_list<reaction> reactions = {
-            reaction(LHS {{S,I}} >>= {{E,I}, beta/Nstart}), // susceptible becomes exposed through infectious
-            reaction(LHS  {{E}} >>= {{I}, alpha}),// exposed becomes infectious
-            reaction(LHS  {{I}}>>= {{{R.name, R.volume}}, gamma}), // infectious becomes removed
-            reaction(LHS {{I}} >>= {{H}, kappa}), // infectious becomes hospitalized
-            reaction(LHS {{H.name, H.volume}} >>= {{R}, tau})    // hospitalized becomes removed
+            reaction(Input {{S, I}} >>= {{E, I}, beta / Nstart}), // susceptible becomes exposed through infectious
+            reaction(Input  {{E}} >>= {{I}, alpha}),// exposed becomes infectious
+            reaction(Input  {{I}}>>= {{{R.name, R.volume}}, gamma}), // infectious becomes removed
+            reaction(Input {{I}} >>= {{H}, kappa}), // infectious becomes hospitalized
+            reaction(Input {{H.name, H.volume}} >>= {{R}, tau})    // hospitalized becomes removed
     };
 
     //Construct the Covid Simulator
@@ -209,11 +209,11 @@ void performSimulationRequirementSeven(){
 
     //Define Covid Reactions
     const std::initializer_list<reaction> reactions = {
-            reaction(LHS {{S,I}} >>= {{E,I}, beta/Nstart}), // susceptible becomes exposed through infectious
-            reaction(LHS  {{E}} >>= {{I}, alpha}),// exposed becomes infectious
-            reaction(LHS  {{I}}>>= {{{R.name, R.volume}}, gamma}), // infectious becomes removed
-            reaction(LHS {{I}} >>= {{H}, kappa}), // infectious becomes hospitalized
-            reaction(LHS {{H.name, H.volume}} >>= {{R}, tau})    // hospitalized becomes removed
+            reaction(Input {{S, I}} >>= {{E, I}, beta / Nstart}), // susceptible becomes exposed through infectious
+            reaction(Input  {{E}} >>= {{I}, alpha}),// exposed becomes infectious
+            reaction(Input  {{I}}>>= {{{R.name, R.volume}}, gamma}), // infectious becomes removed
+            reaction(Input {{I}} >>= {{H}, kappa}), // infectious becomes hospitalized
+            reaction(Input {{H.name, H.volume}} >>= {{R}, tau})    // hospitalized becomes removed
     };;
 
     //Construct the Covid Simulator

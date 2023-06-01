@@ -35,7 +35,7 @@ void reaction::doReaction(reaction::state &state){
 
 //Requirement 1
 //Overloading of the >>= operator allowing for easier creation of reaction
-reaction LHS::operator>>=(const Output& output) {
+reaction Input::operator>>=(const Output& output) {
     return reaction(input,output.output,output.lambda);
 }
 

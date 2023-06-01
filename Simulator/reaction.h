@@ -19,9 +19,9 @@ struct Output {
     const double lambda{};
 };
 
-struct LHS {
+struct Input {
     const std::vector<Reagent> input{};
-    LHS(const std::initializer_list<Reagent>& input) : input(input){}
+    Input(const std::initializer_list<Reagent>& input) : input(input){}
 
     //Requirement 1
     reaction operator>>=(const Output& output);
@@ -38,7 +38,7 @@ public:
     //constructors
     reaction(reaction const &reaction) = default;
     reaction(reaction& other) = default;
-    reaction(const LHS& input, const Output& output, double lambda) : lambda(lambda), input(input.input), output(output.output){}
+    reaction(const Input& input, const Output& output, double lambda) : lambda(lambda), input(input.input), output(output.output){}
     reaction(const std::initializer_list<Reagent>& input, const std::initializer_list<Reagent>& output, double lambda) : lambda(lambda), input(input),output(output){}
     reaction(const std::vector<Reagent>& input, const std::vector<Reagent>& output, double lambda) : output(output), input(input), lambda(lambda) {}
 
