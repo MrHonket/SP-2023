@@ -4,12 +4,12 @@
 
 //Requirement 6
 //Functions for running the simulations for requirement 5
-void performSimulationABC(const Reagent& A,const Reagent& B,const Reagent& C){
+void performSimulationABC(const double& A,const double& B,const double& C){
     //Initialize the start values for all reagents provided by the function input
     auto ABCStates = reaction::state{};
-    ABCStates.update(A.name, A.volume);
-    ABCStates.update(B.name, B.volume);
-    ABCStates.update(C.name, C.volume);
+    ABCStates.update("A", A);
+    ABCStates.update("B", B);
+    ABCStates.update("C", C);
 
     //Initialize the consumption rates
     auto lambda = 0.001;
@@ -34,11 +34,11 @@ void performSimulationABC(const Reagent& A,const Reagent& B,const Reagent& C){
 
 void performSimulationABC(){
     std::cout << "-----Doing simulations for requirement 5.1-----" << std::endl;
-    performSimulationABC(Reagent{"A",100},Reagent{"B",0},Reagent{"C",1});
+    performSimulationABC(100,0,1);
     std::cout << std::endl;
-    performSimulationABC(Reagent{"A",100},Reagent{"B",0},Reagent{"C",2});
+    performSimulationABC(100,0,2);;
     std::cout << std::endl;
-    performSimulationABC(Reagent{"A",50},Reagent{"B",50},Reagent{"C",1});
+    performSimulationABC(50,50,1);
     std::cout << "-----Finished simulations for requirement 5.1-----" << std::endl;
 }
 
