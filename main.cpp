@@ -245,7 +245,7 @@ void futureMean(const std::string &key, std::vector<std::future<std::vector<reac
     std::cout << "Mean " << key << ": " << mean / futures.size() << std::endl;
 }
 
-//Requirement 10 and 10
+//Requirement 8 and 10
 //Benchmark for multicore performance using futures
 //Computed average hospitalized H for N_NJ = 73.8249 and N_DK = 723.108
 void runBenchmarks(){
